@@ -18,6 +18,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ClassifierActivity"
+            android:exported="true"
             android:label="@string/activity_name_classification"
             android:screenOrientation="portrait">
             <intent-filter>
