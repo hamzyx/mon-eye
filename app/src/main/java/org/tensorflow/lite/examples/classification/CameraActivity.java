@@ -70,6 +70,9 @@ public abstract class CameraActivity extends AppCompatActivity
         Camera.PreviewCallback,
         View.OnClickListener,
         AdapterView.OnItemSelectedListener {
+
+  private int sum = 0;
+
   private float threshold = 0.9f;
   private TextWatcher textWatcher;
 
@@ -595,8 +598,20 @@ public abstract class CameraActivity extends AppCompatActivity
             if(recognition.getTitle().equals("none")){
                 //do nothing
             }else{
-              if (recognition.getConfidence() != null && recognition.getConfidence() * 100 > threshold)
-                textToSpeech.speak(recognition.getTitle(), TextToSpeech.QUEUE_FLUSH, null);
+              if (recognition.getConfidence() != null && recognition.getConfidence() * 100 > threshold) {
+                String new_value = recognition.getTitle();
+                String to_speak = "";
+                if (sum == 0) {
+                  sum += Integer.parseInt(new_value);
+                  to_speak = new_value;
+                }
+                else {
+                  int old_value = sum;
+                  sum += Integer.parseInt(new_value);
+                  to_speak = old_value + " plus " + new_value + " equals " + sum;
+                }
+                textToSpeech.speak(to_speak, TextToSpeech.QUEUE_FLUSH, null);
+              }
             }
         }
 
