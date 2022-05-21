@@ -189,6 +189,9 @@ public abstract class Classifier {
     tflite = new Interpreter(tfliteModel, tfliteOptions);
     labels = loadLabelList(activity);
     imgData =
+        // 1 * 360 * 360 * 3 * 4 = 1,555,200 (Float)
+        // 1 * 224 * 224 * 3 * 4 = 602,112 (Quantized)
+        // BanknoteResNet50 accepts 602,112
         ByteBuffer.allocateDirect(
             DIM_BATCH_SIZE
                 * getImageSizeX()
@@ -205,8 +208,10 @@ public abstract class Classifier {
     BufferedReader reader =
         new BufferedReader(new InputStreamReader(activity.getAssets().open(getLabelPath())));
     String line;
+    System.out.println(("mon-eye Adding labels"));
     while ((line = reader.readLine()) != null) {
       labels.add(line);
+      System.out.println("mon-eye adding label: " + line);
     }
     reader.close();
     return labels;
@@ -282,6 +287,7 @@ public abstract class Classifier {
     int recognitionsSize = Math.min(pq.size(), MAX_RESULTS);
     for (int i = 0; i < recognitionsSize; ++i) {
       recognitions.add(pq.poll());
+      System.out.println("mon-eye poll: " + pq.poll());
     }
     Trace.endSection();
     return recognitions;

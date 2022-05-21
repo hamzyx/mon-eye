@@ -53,12 +53,12 @@ public class ClassifierQuantizedMobileNet extends Classifier {
     // you can download this file from
     // see build.gradle for where to obtain this file. It should be auto
     // downloaded into assets.
-    return "model-9-MobNet-448.tflite";
+    return "BanknoteResNet50.tflite";
   }
 
   @Override
   protected String getLabelPath() {
-    return "labels.txt";
+    return "BanknoteResNet50.txt";
   }
 
   @Override
@@ -92,5 +92,21 @@ public class ClassifierQuantizedMobileNet extends Classifier {
   @Override
   protected void runInference() {
     tflite.run(imgData, labelProbArray);
+//    try {
+//      BanknoteResNet50 model = BanknoteResNet50.newInstance(context);
+//
+//      // Creates inputs for reference.
+//      TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+//      inputFeature0.loadBuffer(byteBuffer);
+//
+//      // Runs model inference and gets result.
+//      BanknoteResNet50.Outputs outputs = model.process(inputFeature0);
+//      TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+//
+//      // Releases model resources if no longer used.
+//      model.close();
+//    } catch (IOException e) {
+//      // TODO Handle the exception
+//    }
   }
 }
