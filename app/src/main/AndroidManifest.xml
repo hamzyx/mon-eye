@@ -11,9 +11,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/tbaicon"
+        android:icon="@drawable/tme"
         android:label="@string/activity_name_classification"
-        android:roundIcon="@drawable/tbaicon"
+        android:roundIcon="@drawable/tme"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
