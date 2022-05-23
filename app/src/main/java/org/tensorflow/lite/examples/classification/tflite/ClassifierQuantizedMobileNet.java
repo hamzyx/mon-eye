@@ -53,12 +53,12 @@ public class ClassifierQuantizedMobileNet extends Classifier {
     // you can download this file from
     // see build.gradle for where to obtain this file. It should be auto
     // downloaded into assets.
-    return "BanknoteResNet50.tflite";
+    return "Fina-Mobile-Net-V2.tflite";
   }
 
   @Override
   protected String getLabelPath() {
-    return "BanknoteResNet50.txt";
+    return "Fina-Model-Net-V2.txt";
   }
 
   @Override
