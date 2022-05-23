@@ -73,7 +73,7 @@ public abstract class CameraActivity extends AppCompatActivity
 
   private int sum = 0;
 
-  private float threshold = 0.85f;
+  private float threshold = 0.9f;
   private TextWatcher textWatcher;
 
   private static final Logger LOGGER = new Logger();
