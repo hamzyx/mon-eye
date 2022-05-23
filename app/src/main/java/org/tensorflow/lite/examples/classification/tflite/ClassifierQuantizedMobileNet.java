@@ -40,12 +40,12 @@ public class ClassifierQuantizedMobileNet extends Classifier {
 
   @Override
   public int getImageSizeX() {
-    return 448;
+    return 224;
   }
 
   @Override
   public int getImageSizeY() {
-    return 448;
+    return 224;
   }
 
   @Override
@@ -53,7 +53,7 @@ public class ClassifierQuantizedMobileNet extends Classifier {
     // you can download this file from
     // see build.gradle for where to obtain this file. It should be auto
     // downloaded into assets.
-    return "Mobile-Net-V2.tflite";
+    return "Fina-Mobile-Net-V2.tflite";
   }
 
   @Override
